@@ -16,7 +16,7 @@ db.once("open", () => console.log("MongoDB connected"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", routes);
+app.use("", routes);
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

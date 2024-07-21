@@ -10,11 +10,12 @@ const router: Router = express.Router();
 router.post(
     "/get-products",
     validateSchema(cronjobValidations.updateWebsiteProductsSchema),
-    errorHandler(async (req: updateWebsiteProductsPayload, res: Response)  => {
+    errorHandler(async (req: updateWebsiteProductsPayload, res: Response) => {
         const body = req.body;
         res.send({
-
-            
+            success: true,
+            message: "Products are fetched successfully",
+            data: [],
         });
     }),
 );
