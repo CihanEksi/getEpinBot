@@ -1,0 +1,35 @@
+# Node.js files
+node_modules/
+.env
+
+# Build products
+build/
+dist/
+out/
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# TypeScript related files
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Test coverage reports
+coverage/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Temporary files
+*.tmp
+*.log
+
+# Prettier configuration
+.prettierrc
+
+# Optional: History files for package managers
+npm-shrinkwrap.json
+package-lock.yaml
+yarn-lock.yaml

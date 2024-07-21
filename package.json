@@ -1,0 +1,29 @@
+{
+    "name": "getepinbot",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx ts-node src/index.ts",
+        "dev": "nodemon --exec ts-node src/index.ts",
+        "format": "node format.js"
+    },
+    "keywords": [
+        "express",
+        "typescript",
+        "node"
+    ],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.14.11",
+        "@types/prettier": "^3.0.0",
+        "express": "^4.19.2",
+        "joi": "^17.13.3",
+        "mongodb": "^6.8.0",
+        "mongoose": "^8.5.1",
+        "prettier": "^3.3.3",
+        "typescript": "^5.5.3"
+    }
+}
