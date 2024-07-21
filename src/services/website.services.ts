@@ -1,5 +1,5 @@
 import { WebSite } from "../models";
-import { IWebSite } from "../interfaces/websites.interface";
+import { IWebSite } from "../interfaces/webSites.interface";
 import { FilterQuery } from "mongoose";
 import {
     DeleteWebSiteResponseInterface,

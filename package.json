@@ -5,7 +5,8 @@
     "scripts": {
         "start": "npx ts-node src/index.ts",
         "dev": "nodemon --exec ts-node src/index.ts",
-        "format": "node format.js"
+        "format": "node format.js",
+        "build": "tsc"
     },
     "keywords": [
         "express",

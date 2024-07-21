@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IWebSite } from "../interfaces/websites.interface";
+import { IWebSite } from "../interfaces/webSites.interface";
 
 const websideSchema = new Schema<IWebSite>(
     {

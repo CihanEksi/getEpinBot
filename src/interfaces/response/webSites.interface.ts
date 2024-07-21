@@ -1,4 +1,4 @@
-import { IWebSite } from "../websites.interface";
+import { IWebSite } from "../webSites.interface";
 import { GeneralResponseInterface } from "./general.interface";
 
 interface WebSiteResponseInterface extends GeneralResponseInterface {
