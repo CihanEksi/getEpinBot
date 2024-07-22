@@ -9,12 +9,12 @@ import {
 } from "../interfaces/response/webSites.interface";
 
 export class WebSiteService {
-    async createWebSite(website: IWebSite): Promise<IWebSite> {
+    async create(website: IWebSite): Promise<IWebSite> {
         const createdDocument = await WebSite.create(website);
         return createdDocument;
     }
 
-    async getDetail(query: FilterQuery<IWebSite>): Promise<WebSiteDetailResponseInterface> {
+    async findOne(query: FilterQuery<IWebSite>): Promise<WebSiteDetailResponseInterface> {
         const data: IWebSite | null = await WebSite.findOne(query).lean();
         return {
             data: data,
@@ -23,7 +23,7 @@ export class WebSiteService {
         };
     }
 
-    async getAllWebSites(query: FilterQuery<IWebSite> = {}): Promise<WebSiteResponseInterface> {
+    async find(query: FilterQuery<IWebSite> = {}): Promise<WebSiteResponseInterface> {
         const data: IWebSite[] = await WebSite.find(query).lean();
         return {
             data: data,
@@ -32,7 +32,7 @@ export class WebSiteService {
         };
     }
 
-    async updateWebSite(_id: string, webSite: IWebSite): Promise<UpdateWebSiteResponseInterface> {
+    async updateOne(_id: string, webSite: IWebSite): Promise<UpdateWebSiteResponseInterface> {
         const updateOne = await WebSite.updateOne({ _id: _id }, webSite).lean();
         if (updateOne.modifiedCount === 0) {
             return {
@@ -48,7 +48,7 @@ export class WebSiteService {
         };
     }
 
-    async deleteWebSite(_id: string): Promise<DeleteWebSiteResponseInterface> {
+    async delete(_id: string): Promise<DeleteWebSiteResponseInterface> {
         return {
             data: {
                 _id: _id,

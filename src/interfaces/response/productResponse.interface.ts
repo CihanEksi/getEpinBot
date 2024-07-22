@@ -19,9 +19,14 @@ interface DeleteProductResponseInterface extends GeneralResponseInterface {
     };
 }
 
+interface WebSiteProductInterface extends GeneralResponseInterface {
+    data: IProduct[];
+}
+
 export {
     ProductResponseInterface,
     ProductDetailResponseInterface,
     UpdateProductResponseInterface,
     DeleteProductResponseInterface,
+    WebSiteProductInterface,
 };

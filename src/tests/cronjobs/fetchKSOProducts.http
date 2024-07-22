@@ -1,0 +1,15 @@
+POST https://ekn.kabasakalonline.com/product/products/list HTTP/1.1
+content-type: application/json
+
+{
+    "page": 1,
+    "resultsPerPage": 100,
+    "sort": 0,
+    "selectedcatid": [
+        "102"
+    ],
+    "minprice": 0,
+    "maxprice": 0,
+    "search": "",
+
+}

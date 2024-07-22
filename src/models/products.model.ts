@@ -7,6 +7,7 @@ const productSchema = new Schema<IProduct>(
         price: { type: Number, required: true },
         description: { type: String },
         url: { type: String },
+        stock: { type: Number, default: 0 },
         websiteId: { type: Schema.Types.ObjectId, ref: "Website" },
     },
     {
