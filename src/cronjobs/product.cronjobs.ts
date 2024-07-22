@@ -5,7 +5,7 @@ import { IWebSiteNames } from "../interfaces/webSites.interface";
 import { WebSite } from "../models";
 import { updateKsoProducts } from "./kso.cronjons";
 
-const getWebSiteProducts = async (webSiteName: IWebSiteNames): Promise<WebSiteProductInterface> => {
+const updateWebSiteProducts = async (webSiteName: IWebSiteNames): Promise<WebSiteProductInterface> => {
     const response = {
         success: false,
         message: "Something went wrong on getWebSiteProducts",
@@ -39,4 +39,4 @@ const getWebSiteProducts = async (webSiteName: IWebSiteNames): Promise<WebSitePr
     }
 };
 
-export { getWebSiteProducts };
+export { updateWebSiteProducts };

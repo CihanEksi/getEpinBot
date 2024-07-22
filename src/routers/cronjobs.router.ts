@@ -4,7 +4,7 @@ import { validateSchema } from "../middlewares/validation.middleware";
 import cronjobValidations from "../validations/cronjob.validations";
 import { updateWebsiteProductsPayload } from "../interfaces/requests/cronjob.interface";
 import { GeneralResponseInterface } from "../interfaces/response/general.interface";
-import { getWebSiteProducts } from "../cronjobs/product.cronjobs";
+import { updateWebSiteProducts } from "../cronjobs/product.cronjobs";
 import { IWebSiteNames } from "../interfaces/webSites.interface";
 
 const router: Router = express.Router();
@@ -16,7 +16,7 @@ router.post(
         const body = req.body;
         const webSiteName = body.webSiteName as IWebSiteNames;
 
-        const webSiteProducts = await getWebSiteProducts(webSiteName);
+        const webSiteProducts = await updateWebSiteProducts(webSiteName);
         if (webSiteProducts.success === false) {
             return res.status(400).send(webSiteProducts);
         }
