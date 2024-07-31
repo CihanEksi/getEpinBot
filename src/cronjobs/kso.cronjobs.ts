@@ -6,6 +6,7 @@ import fs from "fs";
 import { IProduct } from "../interfaces/products.interface";
 import { ObjectId } from "mongodb";
 import { Product } from "../models";
+import puppeteer from "../libraries/pupeteer.lib"
 
 interface KSOXMLItem {
     merchantItemId: number;
@@ -106,5 +107,6 @@ const updateKsoProducts = async (webSiteId: ObjectId): Promise<GeneralResponseIn
         data: createdProducts,
     };
 };
+
 
 export { getKsoProducts, updateKsoProducts };

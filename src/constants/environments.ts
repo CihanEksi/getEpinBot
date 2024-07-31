@@ -7,6 +7,7 @@ const environments = {
     CORS_ORIGINS: process.env.CORS_ORIGINS,
     MONGODB_URI: process.env.MONGODB_URI,
     DB_NAME: process.env.DB_NAME,
+    MIDAS_URL: process.env.MIDAS_URL,
 };
 
 
@@ -16,6 +17,7 @@ const envSchema = joi.object({
     CORS_ORIGINS: joi.string().required(),
     MONGODB_URI: joi.string().required(),
     DB_NAME: joi.string().required(),
+    MIDAS_URL: joi.string().required(),
 });
 
 const { error } = envSchema.validate(environments);

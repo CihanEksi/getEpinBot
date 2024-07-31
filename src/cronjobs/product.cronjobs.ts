@@ -3,9 +3,12 @@ import { GeneralResponseInterface } from "../interfaces/response/general.interfa
 import { WebSiteProductInterface } from "../interfaces/response/productResponse.interface";
 import { IWebSiteNames } from "../interfaces/webSites.interface";
 import { WebSite } from "../models";
-import { updateKsoProducts } from "./kso.cronjons";
+import { updateKsoProducts } from "./kso.cronjobs";
+import { updateMidasBuyProducts } from "./midas.cronjobs";
 
-const updateWebSiteProducts = async (webSiteName: IWebSiteNames): Promise<WebSiteProductInterface> => {
+const updateWebSiteProducts = async (
+    webSiteName: IWebSiteNames,
+): Promise<WebSiteProductInterface> => {
     const response = {
         success: false,
         message: "Something went wrong on getWebSiteProducts",
@@ -28,6 +31,27 @@ const updateWebSiteProducts = async (webSiteName: IWebSiteNames): Promise<WebSit
                 success: true,
                 message: "Products are fetched successfully",
                 data: result.data,
+            };
+        case WEB_SITE_NAMES.MidasBuy:
+            const findWebSiteMidasBuy = await WebSite.findOne({ name: webSiteName })
+                .select("_id")
+                .lean();
+            if (!findWebSiteMidasBuy) {
+                response.message = "Web site is not found on getWebSiteProducts";
+                return response;
+            }
+            const webSiteIdMidasBuy = findWebSiteMidasBuy._id;
+
+            const resultMidasBuy = await updateMidasBuyProducts(webSiteIdMidasBuy);
+
+            if (resultMidasBuy.success === false) {
+                return resultMidasBuy;
+            }
+
+            return {
+                success: true,
+                message: "Products are fetched successfully",
+                data: resultMidasBuy.data,
             };
         default:
             console.log("Web site is not found", webSiteName);
